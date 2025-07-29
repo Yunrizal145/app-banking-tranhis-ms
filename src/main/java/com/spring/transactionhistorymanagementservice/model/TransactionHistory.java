@@ -72,6 +72,6 @@ public class TransactionHistory implements Serializable {
     @Column(name = "to_account_name")
     private String toAccountName;
 
-    @Column(name = "additional_data")
+    @Column(name = "additional_data", columnDefinition = "TEXT")
     private String additionalData;
 }
