@@ -1,0 +1,8 @@
+jdk:
+  - openjdk17
+
+build:
+  tool: maven
+
+install:
+  - mvn install -DskipTests=true
