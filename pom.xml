@@ -34,7 +34,7 @@
 		<connection>scm:git:https://github.com/Yunrizal145/app-banking-tranhis-ms.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:Yunrizal145/app-banking-tranhis-ms.git</developerConnection>
 		<url>https://github.com/Yunrizal145/app-banking-tranhis-ms</url>
-		<tag>v1.0.4</tag>
+		<tag>v1.0.5</tag>
 	</scm>
 	<properties>
 		<java.version>11</java.version>
