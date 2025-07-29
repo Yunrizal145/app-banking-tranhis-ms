@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/transaction-history-management-service-0.0.2-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar target/transaction-history-management-service-0.0.2.jar
