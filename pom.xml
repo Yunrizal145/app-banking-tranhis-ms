@@ -11,23 +11,34 @@
 	<groupId>com.spring</groupId>
 	<artifactId>transaction-history-management-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>transaction-history-management-service</name>
 	<description>transaction history management service for banking</description>
-	<url/>
+	<url>https://github.com/Yunrizal145/app-banking-tranhis-ms</url>
+
 	<licenses>
-		<license/>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
 	</licenses>
+
 	<developers>
-		<developer/>
+		<developer>
+			<id>yunrizal</id>
+			<name>Hamad Yunrizal</name>
+		</developer>
 	</developers>
+
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:https://github.com/Yunrizal145/app-banking-tranhis-ms.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:Yunrizal145/app-banking-tranhis-ms.git</developerConnection>
+		<url>https://github.com/Yunrizal145/app-banking-tranhis-ms</url>
+		<tag>HEAD</tag>
 	</scm>
 	<properties>
 		<java.version>11</java.version>
+		<maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -96,18 +107,12 @@
 		</plugins>
 	</build>
 
-	<repositories>
+	<distributionManagement>
 		<repository>
-			<id>central</id>
-			<name>Maven Central Repository</name>
-			<url>https://repo.maven.apache.org/maven2</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
+			<id>github-tranhis-ms</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/Yunrizal145/app-banking-tranhis-ms</url>
 		</repository>
-	</repositories>
+	</distributionManagement>
 
 </project>
