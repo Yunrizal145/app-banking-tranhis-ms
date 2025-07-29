@@ -1,4 +1,4 @@
-package com.spring.transaction_history_management_service;
+package com.spring.transactionhistorymanagementservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
