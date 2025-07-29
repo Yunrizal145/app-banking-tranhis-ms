@@ -18,6 +18,7 @@ public class TransactionHistoryService {
     @Transactional
     public void saveTransactionHistory(TransactionHistory transactionHistory) {
         log.info("Start save Transaction service");
+        log.info("Start save Transaction service request : {}", transactionHistory);
         log.info("Compliance Transaction Information, " +
                         "ID: {}, " +
                         "User Profile ID: {}," +
