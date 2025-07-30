@@ -51,6 +51,7 @@ public class TransactionHistoryService {
         try {
 
             var getTransactionHistory = transactionHistoryRepository.findTransactionHistoryByTransactionIdAndTransactionStatusIsNotNull(request.getTransactionId());
+            log.info("data transaction : {}", getTransactionHistory);
             if (Objects.nonNull(getTransactionHistory)) {
                 transactionHistory = getTransactionHistory.get();
             }
