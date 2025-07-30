@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,6 +48,7 @@ public class TransactionHistory implements Serializable {
     private Date transactionDate;
 
     @Column(name = "transaction_status")
+    @Enumerated(EnumType.STRING)
     private TransactionStatus transactionStatus;
 
     @Column(name = "transaction_curremncy")
