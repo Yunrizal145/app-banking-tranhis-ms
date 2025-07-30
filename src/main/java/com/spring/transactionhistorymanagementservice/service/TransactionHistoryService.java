@@ -50,7 +50,7 @@ public class TransactionHistoryService {
         TransactionHistory transactionHistory = new TransactionHistory();
         try {
 
-            var getTransactionHistory = transactionHistoryRepository.findTransactionHistoryByTransactionId(request.getTransactionId());
+            var getTransactionHistory = transactionHistoryRepository.findTransactionHistoryByTransactionIdAAndTransactionStatusIsNotNull(request.getTransactionId());
             if (Objects.nonNull(getTransactionHistory)) {
                 transactionHistory = getTransactionHistory.get();
             }
