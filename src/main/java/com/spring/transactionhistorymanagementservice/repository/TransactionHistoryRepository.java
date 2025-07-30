@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface TransactionHistoryRepository extends JpaRepository<TransactionHistory, Long> {
 
-    List<TransactionHistory> findTransactionHistoryByUserProfileId(Long userProfileId);
+    List<TransactionHistory> findTransactionHistoryByUserProfileIdOrderByIdDesc(Long userProfileId);
     Optional<TransactionHistory> findTransactionHistoryByTransactionIdAndTransactionStatusIsNotNull(String transactionId);
 
     @Modifying

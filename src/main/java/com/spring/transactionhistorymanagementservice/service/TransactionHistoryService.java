@@ -68,7 +68,7 @@ public class TransactionHistoryService {
         GetListTransactionHistoryResponse getListTransaction = new GetListTransactionHistoryResponse();
         List<TransactionDtoResponse> transactionDtoResponseList = new ArrayList<>();
         try {
-            var getListTransactionHistory = transactionHistoryRepository.findTransactionHistoryByUserProfileId(request.getUserProfileId());
+            var getListTransactionHistory = transactionHistoryRepository.findTransactionHistoryByUserProfileIdOrderByIdDesc(request.getUserProfileId());
             getListTransactionHistory.forEach(transaction -> {
                 transactionDtoResponseList.add(TransactionDtoResponse.builder()
                                 .transactionName(transaction.getToAccountName())
