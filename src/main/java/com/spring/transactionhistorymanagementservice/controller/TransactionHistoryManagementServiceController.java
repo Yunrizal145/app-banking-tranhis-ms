@@ -31,4 +31,9 @@ public class TransactionHistoryManagementServiceController {
     public TransactionHistory getTransactionHistoryByTransactionId(@RequestBody GetTransactionByTransactionIdRequest request){
         return transactionHistoryService.getTransactionByTransactionId(request);
     }
+
+    @PostMapping(value = "/updatestatustransaction")
+    public void updateStatusTransaction(@RequestBody GetTransactionByTransactionIdRequest request){
+        transactionHistoryService.updateStatus(request);
+    }
 }

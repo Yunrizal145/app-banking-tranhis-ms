@@ -36,13 +36,8 @@ public class TransactionHistoryService {
                 transactionHistory.getUserProfileId(), transactionHistory.getFromAccountNumber(),
                 transactionHistory.getTransactionDate(), transactionHistory.getTransactionCurrency(),
                 transactionHistory.getTransactionAmount());
-        TransactionHistory transactionHistoryOld = transactionHistory;
         try {
-            var getTransactionByTransactionId = transactionHistoryRepository.findTransactionHistoryByTransactionIdAndTransactionStatusIsNotNull(transactionHistory.getTransactionId());
-            if (Objects.nonNull(getTransactionByTransactionId)) {
-                transactionHistoryOld = getTransactionByTransactionId.get();
-            }
-            transactionHistoryRepository.saveAndFlush(transactionHistoryOld);
+            transactionHistoryRepository.saveAndFlush(transactionHistory);
         } catch (Exception e) {
             log.error("   Error getTransactionHistory", e);
             throw e;
@@ -84,6 +79,15 @@ public class TransactionHistoryService {
             return getListTransaction;
         } catch (Exception e) {
             throw new RuntimeException("Error when get list transaction history, {}", e);
+        }
+    }
+
+    public void updateStatus(GetTransactionByTransactionIdRequest request) {
+        int rowsUpdated = transactionHistoryRepository.updateTransactionStatus(request.getTransactionId(), request.getStatus().name());
+        if (rowsUpdated > 0) {
+            System.out.println("Update berhasil");
+        } else {
+            System.out.println("Data tidak ditemukan atau tidak diubah");
         }
     }
 
