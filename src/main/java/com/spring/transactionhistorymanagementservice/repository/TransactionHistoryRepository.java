@@ -1,5 +1,6 @@
 package com.spring.transactionhistorymanagementservice.repository;
 
+import com.spring.transactionhistorymanagementservice.constant.TransactionStatus;
 import com.spring.transactionhistorymanagementservice.model.TransactionHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -20,5 +21,5 @@ public interface TransactionHistoryRepository extends JpaRepository<TransactionH
     @Modifying
     @Transactional
     @Query("UPDATE TransactionHistory t SET t.transactionStatus = :status WHERE t.transactionId = :transactionId")
-    int updateTransactionStatus(@Param("transactionId") String transactionId, @Param("status") String status);
+    int updateTransactionStatus(@Param("transactionId") String transactionId, @Param("status") TransactionStatus status);
 }

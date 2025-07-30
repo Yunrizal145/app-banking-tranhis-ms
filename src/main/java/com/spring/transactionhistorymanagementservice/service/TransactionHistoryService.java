@@ -84,7 +84,7 @@ public class TransactionHistoryService {
     }
 
     public void updateStatus(GetTransactionByTransactionIdRequest request) {
-        int rowsUpdated = transactionHistoryRepository.updateTransactionStatus(request.getTransactionId(), request.getStatus().name());
+        int rowsUpdated = transactionHistoryRepository.updateTransactionStatus(request.getTransactionId(), request.getStatus());
         if (rowsUpdated > 0) {
             System.out.println("Update berhasil");
         } else {
