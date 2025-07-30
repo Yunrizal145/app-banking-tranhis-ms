@@ -35,7 +35,7 @@ public class TransactionHistoryService {
                 transactionHistory.getTransactionDate(), transactionHistory.getTransactionCurrency(),
                 transactionHistory.getTransactionAmount());
         try {
-            transactionHistoryRepository.save(transactionHistory);
+            transactionHistoryRepository.saveAndFlush(transactionHistory);
         } catch (Exception e) {
             log.error("   Error getTransactionHistory", e);
             throw e;
