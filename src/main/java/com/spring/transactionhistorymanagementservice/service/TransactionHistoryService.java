@@ -2,6 +2,7 @@ package com.spring.transactionhistorymanagementservice.service;
 
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryRequest;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryResponse;
+import com.spring.transactionhistorymanagementservice.dto.GetTransactionByTransactionIdRequest;
 import com.spring.transactionhistorymanagementservice.dto.TransactionDtoResponse;
 import com.spring.transactionhistorymanagementservice.model.TransactionHistory;
 import com.spring.transactionhistorymanagementservice.repository.TransactionHistoryRepository;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -39,6 +41,23 @@ public class TransactionHistoryService {
         } catch (Exception e) {
             log.error("   Error getTransactionHistory", e);
             throw e;
+        }
+    }
+
+    public TransactionHistory getTransactionByTransactionId(GetTransactionByTransactionIdRequest request){
+        log.info("start getTransactionHistoryByTransactionId");
+        log.info("start getTransactionHistoryByTransactionId req : {}", request);
+        TransactionHistory transactionHistory = new TransactionHistory();
+        try {
+
+            var getTransactionHistory = transactionHistoryRepository.findTransactionHistoryByTransactionId(request.getTransactionId());
+            if (Objects.nonNull(getTransactionHistory)) {
+                transactionHistory = getTransactionHistory.get();
+            }
+
+            return transactionHistory;
+        } catch (Exception e) {
+            throw new RuntimeException("Error when get transaction history : {}", e);
         }
     }
 

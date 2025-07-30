@@ -2,6 +2,7 @@ package com.spring.transactionhistorymanagementservice.controller;
 
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryRequest;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryResponse;
+import com.spring.transactionhistorymanagementservice.dto.GetTransactionByTransactionIdRequest;
 import com.spring.transactionhistorymanagementservice.model.TransactionHistory;
 import com.spring.transactionhistorymanagementservice.service.TransactionHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,10 @@ public class TransactionHistoryManagementServiceController {
     @PostMapping(value = "/getlisttransactionhistory")
     public GetListTransactionHistoryResponse getListTransactionHistoryResponse(@RequestBody GetListTransactionHistoryRequest request){
         return transactionHistoryService.getListTransactionHistoryResponse(request);
+    }
+
+    @PostMapping(value = "/gettransactionhistorybytransactionid")
+    public TransactionHistory getTransactionHistoryByTransactionId(@RequestBody GetTransactionByTransactionIdRequest request){
+        return transactionHistoryService.getTransactionByTransactionId(request);
     }
 }
