@@ -36,8 +36,13 @@ public class TransactionHistoryService {
                 transactionHistory.getUserProfileId(), transactionHistory.getFromAccountNumber(),
                 transactionHistory.getTransactionDate(), transactionHistory.getTransactionCurrency(),
                 transactionHistory.getTransactionAmount());
+        TransactionHistory transactionHistoryOld = transactionHistory;
         try {
-            transactionHistoryRepository.saveAndFlush(transactionHistory);
+            var getTransactionByTransactionId = transactionHistoryRepository.findTransactionHistoryByTransactionIdAndTransactionStatusIsNotNull(transactionHistory.getTransactionId());
+            if (Objects.nonNull(getTransactionByTransactionId)) {
+                transactionHistoryOld = getTransactionByTransactionId.get();
+            }
+            transactionHistoryRepository.saveAndFlush(transactionHistoryOld);
         } catch (Exception e) {
             log.error("   Error getTransactionHistory", e);
             throw e;
