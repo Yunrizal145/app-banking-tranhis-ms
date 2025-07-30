@@ -48,7 +48,6 @@ public class TransactionHistory implements Serializable {
     private Date transactionDate;
 
     @Column(name = "transaction_status")
-    @Enumerated(EnumType.STRING)
     private TransactionStatus transactionStatus;
 
     @Column(name = "transaction_curremncy")
