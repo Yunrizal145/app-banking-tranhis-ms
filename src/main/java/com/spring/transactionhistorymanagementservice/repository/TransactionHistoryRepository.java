@@ -20,5 +20,5 @@ public interface TransactionHistoryRepository extends JpaRepository<TransactionH
     @Modifying
     @Transactional
     @Query("UPDATE TransactionHistory t SET t.transactionStatus = :status WHERE t.transactionId = :transactionId")
-    int updateTransactionStatus(@Param("orderId") String transactionId, @Param("status") String status);
+    int updateTransactionStatus(@Param("transactionId") String transactionId, @Param("status") String status);
 }
