@@ -1,5 +1,6 @@
 package com.spring.transactionhistorymanagementservice.service;
 
+import com.spring.transactionhistorymanagementservice.constant.TransactionStatus;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryRequest;
 import com.spring.transactionhistorymanagementservice.dto.GetListTransactionHistoryResponse;
 import com.spring.transactionhistorymanagementservice.dto.GetTransactionByTransactionIdRequest;
@@ -70,11 +71,13 @@ public class TransactionHistoryService {
         try {
             var getListTransactionHistory = transactionHistoryRepository.findTransactionHistoryByUserProfileIdOrderByIdDesc(request.getUserProfileId());
             getListTransactionHistory.forEach(transaction -> {
-                transactionDtoResponseList.add(TransactionDtoResponse.builder()
-                                .transactionName(transaction.getToAccountName())
-                                .accountNumber(transaction.getToAccountNumber())
-                                .transactionAmount(StringUtils.formatRupiah(transaction.getTransactionAmount()))
-                        .build());
+                if (TransactionStatus.SUCCESS.equals(transaction.getTransactionStatus())) {
+                    transactionDtoResponseList.add(TransactionDtoResponse.builder()
+                                    .transactionName(transaction.getToAccountName())
+                                    .accountNumber(transaction.getToAccountNumber())
+                                    .transactionAmount(StringUtils.formatRupiah(transaction.getTransactionAmount()))
+                            .build());
+                }
             });
             getListTransaction.setTransactionHistoryList(transactionDtoResponseList);
             return getListTransaction;
