@@ -2,6 +2,7 @@ package com.spring.transactionhistorymanagementservice.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.spring.transactionhistorymanagementservice.constant.AccountType;
+import com.spring.transactionhistorymanagementservice.constant.TransactionCategory;
 import com.spring.transactionhistorymanagementservice.constant.TransactionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,6 +44,10 @@ public class TransactionHistory implements Serializable {
 
     @Column(name = "transaction_description")
     private String transactionDescription;
+
+    @Column(name = "transaction_category")
+    @Enumerated(EnumType.STRING)
+    private TransactionCategory transactionCategory;
 
     @Column(name = "transaction_date")
     private Date transactionDate;
