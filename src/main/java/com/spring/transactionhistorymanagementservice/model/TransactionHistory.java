@@ -46,7 +46,6 @@ public class TransactionHistory implements Serializable {
     private String transactionDescription;
 
     @Column(name = "transaction_category")
-    @Enumerated(EnumType.STRING)
     private TransactionCategory transactionCategory;
 
     @Column(name = "transaction_date")
