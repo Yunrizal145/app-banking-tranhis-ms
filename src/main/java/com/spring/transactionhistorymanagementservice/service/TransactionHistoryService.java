@@ -59,6 +59,7 @@ public class TransactionHistoryService {
                 transactionHistory.getTransactionDate(), transactionHistory.getTransactionCurrency(),
                 transactionHistory.getTransactionAmount());
         try {
+            transactionHistory.setTransactionCategory(null);
             transactionHistoryRepository.saveAndFlush(transactionHistory);
         } catch (Exception e) {
             log.error("   Error getTransactionHistory", e);
